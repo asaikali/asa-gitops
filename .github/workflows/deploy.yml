@@ -1,7 +1,9 @@
 name: Deploy
 
-on: push
-
+on:
+  push: 
+    paths:
+      - 'apps/demo-time'
 
 jobs:
   deploy_to_production:
@@ -18,7 +20,7 @@ jobs:
       
       - name: Detrmine app version to deploy
         run: |
-          cat versions >> $GITHUB_ENV
+          cat apps/demo-time/version >> $GITHUB_ENV
 
       - name: Configured application version for deployment
         run: |
