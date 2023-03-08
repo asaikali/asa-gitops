@@ -18,22 +18,31 @@ jobs:
         uses: azure/login@v1
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
+      
+      - name: detrmine app version 
+        run: |
+          cat versions >> $GITHUB_ENV
+
+      - name: Use the value
+        run: |
+          echo "${{ env.APP_VERSION }}" 
+
 
       - name: Get Package 
         run: ./get-app-jar.sh
         env:
-          APP_VERSION: "1.0.0"
+          # APP_VERSION: "1.0.0"
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
 
-      - name: deploy to production with artifact
-        uses: azure/spring-apps-deploy@v1
-        with:
-          azure-subscription: ${{ vars.AZURE_SUBSCRIPTION }}
-          action: Deploy
-          service-name: demo-asa
-          app-name: demo-time
-          use-staging-deployment: false
-          create-new-deployment: true
-          package: demo-time-1.0.0.jar
+      # - name: deploy to production with artifact
+      #   uses: azure/spring-apps-deploy@v1
+      #   with:
+      #     azure-subscription: ${{ vars.AZURE_SUBSCRIPTION }}
+      #     action: Deploy
+      #     service-name: demo-asa
+      #     app-name: demo-time
+      #     use-staging-deployment: false
+      #     create-new-deployment: true
+      #     package: demo-time-1.0.0.jar
 
   
