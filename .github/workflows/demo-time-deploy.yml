@@ -1,0 +1,14 @@
+name: Deploy Demo Time
+
+on:
+  push: 
+    paths:
+      - 'apps/demo-time/**'
+
+jobs:
+  call-workflow-passing-data:
+    uses: https://github.com/asaikali/asa-gitops/blob/main/.github/workflows/deploy.yml@main
+    with:
+      app-name: "demo-time"
+      service-name: "demo-asa"
+   

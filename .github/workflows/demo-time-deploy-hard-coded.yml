@@ -1,15 +1,10 @@
-name: Deploy
+name: Deploy Demo Time
 
-on:
-  workflow_call:
-    inputs:
-      app-name:
-        required: true
-        type: string
-      service-name:
-        required: true
-        type: string
- 
+# on:
+#   push: 
+#     paths:
+#       - 'apps/demo-time/**'
+
 jobs:
   deploy_to_production:
     runs-on: ubuntu-latest
@@ -25,7 +20,7 @@ jobs:
       
       - name: Detrmine app version to deploy
         run: |
-          cat apps/${{ inputs.app-name }}/version >> $GITHUB_ENV
+          cat apps/demo-time/version >> $GITHUB_ENV
 
       - name: Configured application version for deployment
         run: |
@@ -41,11 +36,10 @@ jobs:
         with:
           azure-subscription: ${{ vars.AZURE_SUBSCRIPTION }}
           action: Deploy
-          service-name: ${{ inputs.service-name }}
-          app-name: ${{ inputs.app-name }}
+          service-name: demo-asa
+          app-name: demo-time
           use-staging-deployment: false
           create-new-deployment: true
-          build-cpu: 2
           package: demo-time-${{ env.APP_VERSION }}.jar
 
   
