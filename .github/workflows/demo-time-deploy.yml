@@ -7,7 +7,7 @@ on:
 
 jobs:
   call-workflow-passing-data:
-    uses: https://github.com/asaikali/asa-gitops/blob/main/.github/workflows/deploy.yml@main
+    uses: ./.github/workflows/deploy.yml
     with:
       app-name: "demo-time"
       service-name: "demo-asa"
