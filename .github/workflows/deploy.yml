@@ -3,7 +3,7 @@ name: Deploy
 on:
   push: 
     paths:
-      - 'apps/demo-time'
+      - 'apps/demo-time/**'
 
 jobs:
   deploy_to_production:
