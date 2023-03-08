@@ -32,6 +32,7 @@ jobs:
           service-name: demo-asa
           app-name: demo-time
           use-staging-deployment: false
+          create-new-deployment: true
           package: demo-time-1.0.0.jar
 
   
