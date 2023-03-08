@@ -6,8 +6,6 @@ on:
       - 'apps/demo-time/**'
 
 jobs:
-  test: 
-  
   call-workflow-passing-data:
     uses: ./.github/workflows/deploy.yml
     with:
