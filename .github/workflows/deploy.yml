@@ -1,4 +1,4 @@
-name: Deplofy
+name: Deploy
 
 on: push
 
@@ -27,7 +27,7 @@ jobs:
       - name: deploy to production with artifact
         uses: azure/spring-apps-deploy@v1
         with:
-          azure-subscription: ${{ env.AZURE_SUBSCRIPTION }}
+          azure-subscription: ${{ vars.AZURE_SUBSCRIPTION }}
           action: Deploy
           service-name: demo-asa
           app-name: demo-time
