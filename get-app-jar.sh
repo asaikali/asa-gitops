@@ -1,4 +1,4 @@
-curl 'https://maven.pkg.github.com/asaikali/demo-time/com/example/demo-time/1.0.0/demo-time-1.0.0.jar' \
+curl 'https://maven.pkg.github.com/asaikali/demo-time/com/example/demo-time/${APP_VERSION}/demo-time-${APP_VERSION}.jar' \
   -H "Authorization: Bearer ${GITHUB_TOKEN}" \
   -L \
   -O
