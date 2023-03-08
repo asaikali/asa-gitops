@@ -19,6 +19,9 @@ jobs:
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
 
+      - name: Get Package 
+        run: ./get-app-jar.sh
+        
       # - name: deploy to production step with soruce code
       #   uses: azure/spring-cloud-deploy@v1
       #   with:
