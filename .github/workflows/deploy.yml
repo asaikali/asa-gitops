@@ -23,12 +23,15 @@ jobs:
         run: ./get-app-jar.sh
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
-      # - name: deploy to production step with soruce code
-      #   uses: azure/spring-cloud-deploy@v1
-      #   with:
-      #     azure-subscription: ${{ env.AZURE_SUBSCRIPTION }}
-      #     action: deploy
-      #     service-name: <service instance name>
-      #     app-name: <app name>
-      #     use-staging-deployment: false
-      #     package: ${{ env.ASC_PACKAGE_PATH }}
+
+      - name: deploy to production with artifact
+        uses: azure/spring-apps-deploy@v1
+        with:
+          azure-subscription: ${{ env.AZURE_SUBSCRIPTION }}
+          action: Deploy
+          service-name: demo-asa
+          app-name: demo-time
+          use-staging-deployment: false
+          package: demo-time-1.0.0.jar
+
+  
