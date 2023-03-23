@@ -1,0 +1,16 @@
+name: Deploy Demo Time
+
+on:
+  push: 
+    paths:
+      - 'apps/demo-time/**'
+
+jobs:
+  call-workflow-passing-data:
+    uses: ./.github/workflows/deploy.yml
+    with:
+      app-name: "demo-time"
+      service-name: "demo-asa"
+    secrets:
+      AZURE_CREDENTIALS:  ${{ secrets.AZURE_CREDENTIALS }}
+   
