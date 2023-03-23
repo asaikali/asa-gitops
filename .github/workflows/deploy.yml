@@ -48,7 +48,4 @@ jobs:
           app-name: ${{ inputs.app-name }}
           use-staging-deployment: false
           create-new-deployment: true
-          build-cpu: 2
           package: demo-time-${{ env.APP_VERSION }}.jar
-
-  
