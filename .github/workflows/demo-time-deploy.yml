@@ -11,4 +11,6 @@ jobs:
     with:
       app-name: "demo-time"
       service-name: "demo-asa"
+    secrets:
+      AZURE_CREDENTIALS:  ${{ secrets.AZURE_CREDENTIALS }}
    
