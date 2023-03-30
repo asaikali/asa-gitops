@@ -4,6 +4,8 @@ on:
   push:
     branches:
     - main
+    paths:
+    - 'apps/demo-time/definition/**'
 
 #Special permissions required for OIDC authentication
 permissions:
