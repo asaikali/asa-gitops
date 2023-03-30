@@ -59,7 +59,7 @@ resource "azurerm_spring_cloud_build_deployment" "green" {
   build_result_id     = "<default>"
   instance_count      = 2
   quota {
-    cpu    = "3"
+    cpu    = "2"
     memory = "2Gi"
   }
 
